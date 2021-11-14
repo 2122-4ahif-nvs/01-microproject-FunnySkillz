@@ -11,6 +11,10 @@ public class Grave {
         return price;
     }
 
+    public Grave(double price) {
+        this.price = price;
+    }
+
     public void setPrice(double price) {
         this.price = price;
     }
