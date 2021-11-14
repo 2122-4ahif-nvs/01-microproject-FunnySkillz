@@ -3,13 +3,11 @@
 class Customer{
     id: long
     name: String
-
 }
 
 class Grave{
     id: long
     price: double
-
 }
 
 class Rent{
