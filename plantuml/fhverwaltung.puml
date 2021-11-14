@@ -16,6 +16,7 @@ class Rent{
     GraveId: long
     rentStart: LocalDate
     rentEnd: LocalDate
+    discount: double
 }
 
 class Corpse {

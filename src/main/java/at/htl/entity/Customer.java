@@ -15,7 +15,6 @@ public class Customer {
     //region Constructors
     public Customer(String name, LocalDate dob) {
         this.name = name;
-
     }
 
     public Customer() {
