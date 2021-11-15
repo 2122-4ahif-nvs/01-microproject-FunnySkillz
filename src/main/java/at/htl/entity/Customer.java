@@ -2,26 +2,43 @@ package at.htl.entity;
 
 import javax.json.bind.annotation.JsonbDateFormat;
 import javax.json.bind.annotation.JsonbProperty;
+import javax.persistence.*;
 import java.time.LocalDate;
+
+@Entity
+@NamedQueries({
+        @NamedQuery(
+                name = "Person.findAll",
+                query = "select c from Customer c"
+        )
+})
 
 public class Customer {
 
-    @JsonbProperty("customer_name")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     private String name;
 
-    @JsonbDateFormat("yyyy-MM-dd")
-    private LocalDate dob;
-
-    //region Constructors
-    public Customer(String name, LocalDate dob) {
-        this.name = name;
+    //region constructors
+    public Customer() {
     }
 
-    public Customer() {
+    public Customer(String name) {
+        this.name = name;
     }
     //endregion
 
-    //region getters and setters
+    //region getter and setter
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }
@@ -29,22 +46,15 @@ public class Customer {
     public void setName(String name) {
         this.name = name;
     }
-
-    public LocalDate getDob() {
-        return dob;
-    }
-
-    public void setDob(LocalDate dob) {
-        this.dob = dob;
-    }
     //endregion
 
 
     @Override
     public String toString() {
-        return "Customer{" +
-                "name='" + name + '\'' +
-                ", dob=" + dob +
+        return "Person{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
                 '}';
     }
 }
+

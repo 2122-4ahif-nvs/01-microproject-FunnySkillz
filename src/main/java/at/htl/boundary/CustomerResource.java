@@ -21,7 +21,7 @@ public class CustomerResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getPerson(@PathParam("id") String id) {
         return Response.ok(
-                new Customer(id, LocalDate.now())
+                new Customer(id)
         ).build();
     }
 
@@ -32,8 +32,7 @@ public class CustomerResource {
     ) {
         return Response.ok(
                 new Customer(
-                        firstName + " " + lastName,
-                        LocalDate.now())
+                        firstName + " " + lastName)
         ).build();
     }
 
@@ -46,8 +45,7 @@ public class CustomerResource {
     ) {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         Customer newCustomer = new Customer(
-                name,
-                LocalDate.parse(dob, dtf));
+                name);
         logger.info(newCustomer);
         URI uri = uriInfo
                 .getAbsolutePathBuilder()
