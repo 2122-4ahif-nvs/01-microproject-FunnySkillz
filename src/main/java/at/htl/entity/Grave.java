@@ -13,8 +13,8 @@ public class Grave {
     private double price;
 
     public Grave() {
-
     }
+
     public Grave(double price) {
         this.price = price;
     }
