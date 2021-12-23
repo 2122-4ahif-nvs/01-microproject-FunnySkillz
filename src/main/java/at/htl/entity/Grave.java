@@ -5,6 +5,7 @@ import javax.persistence.*;
 
 @Entity
 public class Grave {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

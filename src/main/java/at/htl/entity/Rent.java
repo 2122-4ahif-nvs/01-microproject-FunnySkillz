@@ -1,5 +1,6 @@
 package at.htl.entity;
 
+import javax.json.bind.annotation.JsonbDateFormat;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
@@ -15,9 +16,15 @@ public class Rent {
     @ManyToOne
     private Grave grave;
 
+    @JsonbDateFormat("yyyy-MM-dd")
     private LocalDateTime startDateTime;
+    @JsonbDateFormat("yyyy-MM-dd")
     private LocalDateTime endDateTime;
     private double discount;
+
+    public Grave getGrave() {
+        return grave;
+    }
 
     public Long getId() {
         return id;
