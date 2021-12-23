@@ -5,7 +5,7 @@ import javax.json.bind.annotation.JsonbProperty;
 import javax.persistence.*;
 import java.time.LocalDate;
 
-@Entity
+
 @NamedQueries({
         @NamedQuery(
                 name = "Person.findAll",
@@ -13,6 +13,7 @@ import java.time.LocalDate;
         )
 })
 
+@Entity
 public class Customer {
 
     @Id
@@ -47,7 +48,6 @@ public class Customer {
         this.name = name;
     }
     //endregion
-
 
     @Override
     public String toString() {

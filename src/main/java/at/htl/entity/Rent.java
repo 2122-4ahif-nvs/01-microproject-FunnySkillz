@@ -1,14 +1,31 @@
 package at.htl.entity;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
+@Entity
 public class Rent {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
+    @ManyToOne
     private Customer customer;
+
+    @ManyToOne
     private Grave grave;
+
     private LocalDateTime startDateTime;
     private LocalDateTime endDateTime;
     private double discount;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     //region constructors
     public Rent(Customer customer, Grave grave, LocalDateTime startDateTime, LocalDateTime endDateTime, double discount) {
@@ -64,7 +81,6 @@ public class Rent {
         this.discount = discount;
     }
     //endregion
-
 
     @Override
     public String toString() {
